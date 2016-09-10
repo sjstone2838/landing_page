@@ -30,8 +30,8 @@ class Registrant(TimeStampedModel):
     email = models.EmailField(max_length=200, blank=False, unique=True)
     industry = models.CharField(max_length=200,
                                 choices=ORGANIZATION_INDUSTRY_CHOICES,
-                                blank=True,
-                                default='')
+                                null=True,
+                                blank=True)
     employee_count = models.IntegerField(null=True, blank=True)
     annual_hires = models.IntegerField(null=True, blank=True)
 

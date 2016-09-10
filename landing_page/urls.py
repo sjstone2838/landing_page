@@ -24,4 +24,5 @@ urlpatterns = [
 urlpatterns += patterns(
     '',
     url(r'^api', include('api.urls')),
+    url(r'^website', include('website.urls')),
 )
