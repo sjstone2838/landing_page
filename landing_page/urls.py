@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import patterns, include
+from django.views.generic.base import RedirectView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,5 +26,6 @@ urlpatterns = [
 urlpatterns += patterns(
     '',
     url(r'^api', include('api.urls')),
-    url(r'^website', include('website.urls')),
+    url(r'^', include('website.urls')),
+    url(r'^.*$', RedirectView.as_view(url='/'))
 )
