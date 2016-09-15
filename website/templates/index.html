@@ -8,8 +8,10 @@
         <meta name="viewport" content="width=device-width">
         <title>Landing Page</title>
         
-        <link rel="stylesheet" href="{% static 'styles.css' %}">
-        <link rel="stylesheet" href="{% static 'angular/vendors/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blackrock-digital.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
         <script src="{% static 'angular/vendors/jquery.min.js' %}"></script>
         <script src="{% static 'angular/vendors/bootstrap.min.js' %}"></script>
         <script src="{% static 'angular/vendors/angular.min.js' %}"></script>
@@ -21,129 +23,236 @@
         <!-- Angular controllers and services
         <!-- <script src="dist/bmbase.min.js"></script> -->
         <script src="{% static 'angular/main.controller.js' %}"></script>
+
+        <!-- Custom Fonts -->
+        <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     </head>
     <body ng-controller="MainCtrl as main">
-        <div class="container-fluid">
-            <div class="row navbar-bkgrd">
-                <div style="display: inline-block; margin: 5px">
-                    <a href="#/" class="brand">
-                        Logo 
-                    </a>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <div class="container topnav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand topnav" href="#">Boomerang Logo</a>
                 </div>
-                <div  style="float: right; margin: 8px;">
-                    <a href="#/about" class="btn btn-default">
-                        <span class="glyphicon glyphicon-th-list"></span>
-                    </a>
-                    <a href="#/team" class="btn btn-default">
-                       <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                    <a href="#/contact" class="btn btn-default">
-                        <span class="glyphicon glyphicon-envelope"></span>
-                    </a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li>
+                            <a href="#products">Products</a>
+                        </li>
+                        <li>
+                            <a href="#login">Login</a>
+                        </li>
+                    </ul>
                 </div>
+                <!-- /.navbar-collapse -->
             </div>
+            <!-- /.container -->
+        </nav>
 
-            <article>
-                <h1> Boomerang </h1>
-                <h2> Predictive People Analytics </h2>
-            </article>
+        <!-- Header -->
+        <div class="intro-header">
+            <div class="container">
 
-            <article>
-                <h1> Description of Boomerang </h1>
-                <h5> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </h5>
-            </article>
-
-            <article>
-                <h1> Maybe a screenshot or two goes here? </h1>
-                <h5> 
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-
-                </h5>
-            </article>
-
-            <form 
-                name="preliminaryForm" 
-                ng-submit="main.submit(main.email)" 
-                ng-if="main.showPreliminaryForm">
-                <h4> Sign up for the Boomerang private beta here </h4>
-                <div class="form-input-row"> 
-                    <div class="form-input-label"> First name: </div>
-                    <input class="form-input-input" type="text" ng-model="main.firstName" required="string">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-message">
+                            <h1>Boomerang</h1>
+                            <hr class="intro-divider">
+                            <h3>Predictive People Analytics</h3>
+                            <!-- <ul class="list-inline intro-social-buttons">
+                                <li>
+                                    <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                                </li>
+                            </ul> -->
+                        </div>
+                    </div>
                 </div>
-                <div class="form-input-row"> 
-                    <div class="form-input-label"> Last name: </div>
-                    <input class="form-input-input" type="text" ng-model="main.lastName" required="string">
-                </div>
-                <div class="form-input-row"> 
-                    <div class="form-input-label"> Email: </div>
-                    <input class="form-input-input" type="email" ng-model="main.email" required="email">
-                </div>
-                <input ng-disabled="preliminaryForm.$invalid" class="btn btn-primary" type="submit" value="Next">
-            </form>
 
-
-
-            <form 
-                name="detailForm" 
-                ng-submit="main.submit(main.email)" 
-                ng-if="main.showDetailForm">
-                <h4> Thanks. Please tell us a bit about your company </h4>
-                <div class="form-input-row"> 
-                    <div class="form-input-label"> Industry: </div>
-                    <select class="form-input-input" ng-model="main.industry" required="string">
-                        <option value="Business Process Outsourcing"> Business Process Outsourcing </option>
-                        <option value="Education"> Education </option>
-                        <option value="Financial Services"> Financial Services </option>
-                        <option value="Healthcare"> Healthcare </option>
-                        <option value="Hospitality"> Hospitality </option>
-                        <option value="Manufacturing"> Manufacturing </option>
-                        <option value="Retail"> Retail </option>
-                        <option value="Tech-Software"> Tech-Software </option>
-                        <option value="Tech-Hardware"> Tech-Hardware </option>
-                        <option value="Other"> Other </option>
-                    </select>
-                </div>
-                <div class="form-input-row"> 
-                    <div class="form-input-label"> Employee count: </div>
-                    <input class="form-input-input" type="number" ng-model="main.employeeCount" required="number">
-                </div>
-                <div class="form-input-row"> 
-                    <div class="form-input-label"> Annual hires </div>
-                    <input class="form-input-input" type="number" ng-model="main.annualHires" required="number">
-                </div>
-                <input ng-disabled="detailForm.$invalid" class="btn btn-primary" type="submit" value="Submit">
-            </form>
-
-            <div class="error-message" ng-if="main.showErrorMessage">
-                <span> Something went wrong, please try again </span>
-                <span class="btn-close" ng-click="main.closeMessage()"> X </span>
-            </div>
-
-            <div class="success-message" ng-if="main.showSuccessMessage">
-                    <span class="btn-close" ng-click="main.closeMessage()"> X </span>
-                    <span> Thanks for submitting your information, we'll be in touch soon. </span>
-            </div>
-
-            <div class="row copyright">
-                <div class="col-xs-12">
-                Copyright 2016
-                </div>
             </div>
         </div>
 
-        <!-- GOOGLE ANALYTICS -->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        <!-- /.content-section-a -->
+        <a  name="about"></a>
+        <div class="content-section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">What is Boomerang?</h2>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive" src="{% static 'img/ipad.png' %}" alt="">
+                    </div>
+                </div>
 
-          ga('create', 'UA-84235118-1', 'auto');
-          ga('send', 'pageview');
+            </div>
+        </div>
 
-        </script>
+        <!-- /.content-section-b -->
+        <a  name="products"></a>
+        <div class="content-section-b">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Candidate Insights</h2>
+                        <p class="lead">[EXPANDABLE WIREFRAME OF CANDIDATE INSIGHTS -->] <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <img class="img-responsive" src="{% static 'img/dog.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="content-section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Interviewer Analytics</h2>
+                        <p class="lead">[ <--EXPANDABLE WIREFRAME OF INTERVIEWER Analytics] <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive" src="{% static 'img/phones.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a  name="login"></a>
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Sign up for the Boomerang private beta</h2>
+                    
+
+                        <form 
+                            name="preliminaryForm" 
+                            ng-submit="main.submit(main.email)" 
+                            ng-if="main.showPreliminaryForm">
+                            <div class="form-input-row"> 
+                                <div class="form-input-label"> First name: </div>
+                                <input class="form-input-input" type="text" ng-model="main.firstName" required="string">
+                            </div>
+                            <div class="form-input-row"> 
+                                <div class="form-input-label"> Last name: </div>
+                                <input class="form-input-input" type="text" ng-model="main.lastName" required="string">
+                            </div>
+                            <div class="form-input-row"> 
+                                <div class="form-input-label"> Email: </div>
+                                <input class="form-input-input" type="email" ng-model="main.email" required="email">
+                            </div>
+                            <input ng-disabled="preliminaryForm.$invalid" class="btn btn-primary" type="submit" value="Next">
+                        </form>
+
+
+                        <form 
+                            name="detailForm" 
+                            ng-submit="main.submit(main.email)" 
+                            ng-if="main.showDetailForm">
+                            <h4> Thanks. Please tell us a bit about your company </h4>
+                            <div class="form-input-row"> 
+                                <div class="form-input-label"> Industry: </div>
+                                <select class="form-input-input" ng-model="main.industry" required="string">
+                                    <option value="Business Process Outsourcing"> Business Process Outsourcing </option>
+                                    <option value="Education"> Education </option>
+                                    <option value="Financial Services"> Financial Services </option>
+                                    <option value="Healthcare"> Healthcare </option>
+                                    <option value="Hospitality"> Hospitality </option>
+                                    <option value="Manufacturing"> Manufacturing </option>
+                                    <option value="Retail"> Retail </option>
+                                    <option value="Tech-Software"> Tech-Software </option>
+                                    <option value="Tech-Hardware"> Tech-Hardware </option>
+                                    <option value="Other"> Other </option>
+                                </select>
+                            </div>
+                            <div class="form-input-row"> 
+                                <div class="form-input-label"> Employee count: </div>
+                                <input class="form-input-input" type="number" ng-model="main.employeeCount" required="number">
+                            </div>
+                            <div class="form-input-row"> 
+                                <div class="form-input-label"> Annual hires </div>
+                                <input class="form-input-input" type="number" ng-model="main.annualHires" required="number">
+                            </div>
+                            <input ng-disabled="detailForm.$invalid" class="btn btn-primary" type="submit" value="Submit">
+                        </form>
+
+                        <div class="error-message" ng-if="main.showErrorMessage">
+                            <span> Something went wrong, please try again </span>
+                            <span class="btn-close" ng-click="main.closeMessage()"> X </span>
+                        </div>
+
+                        <div class="success-message" ng-if="main.showSuccessMessage">
+                                <span class="btn-close" ng-click="main.closeMessage()"> X </span>
+                                <span> Thanks for submitting your information, we'll be in touch soon. </span>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="footer-menu-divider">&sdot;</li>
+                            <li>
+                                <a href="#about">About</a>
+                            </li>
+                            <li class="footer-menu-divider">&sdot;</li>
+                            <li>
+                                <a href="#products">Products</a>
+                            </li>
+                            <li class="footer-menu-divider">&sdot;</li>
+                            <li>
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted small">Copyright &copy; Boomerang 2016. All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </body>
+    
+
+
+
+            
+
 </html>
