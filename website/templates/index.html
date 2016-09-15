@@ -52,7 +52,7 @@
                             <a ng-click="main.scrollTo('products')">Products</a>
                         </li>
                         <li>
-                            <a ng-click="main.scrollTo('login')">Login</a>
+                            <a ng-click="main.showLoginForm = true;">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -206,15 +206,15 @@
                             <input ng-disabled="detailForm.$invalid" class="btn btn-primary" type="submit" value="Submit">
                         </form>
 
-                        <div class="error-message" ng-if="main.showErrorMessage">
+                        <form class="error-message" ng-if="main.showRegisterErrorMessage">
                             <span> Something went wrong, please try again </span>
                             <span class="btn-close" ng-click="main.closeMessage()"> X </span>
-                        </div>
+                        </form>
 
-                        <div class="success-message" ng-if="main.showSuccessMessage">
-                                <span class="btn-close" ng-click="main.closeMessage()"> X </span>
-                                <span> Thanks for submitting your information, we'll be in touch soon. </span>
-                        </div>
+                        <form class="success-message" ng-if="main.showRegisterSuccessMessage">
+                            <span> Thanks for submitting your information, we'll be in touch soon. </span>
+                            <span class="btn-close" ng-click="main.closeMessage()"> X </span>
+                        </form>
 
 
                     </div>
@@ -224,9 +224,9 @@
         </div>
 
         <!-- Login -->
-        <div class="login">
             <form 
-                name="loginForm" 
+                name="loginForm"
+                class="login" 
                 ng-submit="main.login(main.username, main.password)" 
                 ng-if="main.showLoginForm">
                 <div class="form-input-row"> 
@@ -235,11 +235,12 @@
                 </div>
                 <div class="form-input-row"> 
                     <div class="form-input-label"> Password: </div>
-                    <input class="form-input-input" type="text" ng-model="main.password" required="string">
+                    <input class="form-input-input" type="password" ng-model="main.password" required="string">
                 </div>
+                <div class="error-message" ng-if="main.showLoginErrorMessage"> Username and/or password not recognized. </div>
                 <input ng-disabled="loginForm.$invalid" class="btn btn-primary" type="submit" value="Login">
+                <div class="btn-close" ng-click="main.showLoginForm = false"> X </div>
             </form>
-        </div>
         
 
         <!-- Footer -->

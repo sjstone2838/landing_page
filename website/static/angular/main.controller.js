@@ -9,17 +9,23 @@
         var apiUrl = protocol + '://' + host + ':' + port + '/api/'; 
 
         vm.showPreliminaryForm = true;
-        vm.showLoginForm = true;
+        vm.showLoginForm = false;
         vm.showDetailForm = false;
-        vm.showSuccessMessage = false;
-        vm.showErrorMessage = false;
+        vm.showRegisterSuccessMessage = false;
+        vm.showRegisterErrorMessage = false;
+        vm.showLoginErrorMessage = false;
+
+        vm.login = function(){
+            vm.showLoginErrorMessage = true;
+            console.log('here');
+        };
 
         vm.scrollTo = function(id) {
           console.log(id);
           $location.hash(id);
           console.log($location);
           $anchorScroll();
-        }
+        };
 
         vm.submit = function(email){
             $http.get(apiUrl + 'registrants?search=' + email)
@@ -42,15 +48,15 @@
                     createRegistrant(data)
                 }
             });
-        }
+        };
 
         vm.closeMessage = function(){
             vm.showPreliminaryForm = true;
             vm.showDetailForm = false;
-            vm.showSuccessMessage = false;
-            vm.showErrorMessage = false;
+            vm.showRegisterSuccessMessage = false;
+            vm.showRegisterErrorMessage = false;
             clearRegistrantData();
-        }
+        };
 
         function createRegistrant(data){
             $http.post(apiUrl + 'registrants', data)
@@ -58,7 +64,7 @@
                 vm.showDetailForm = true;
             })
             .error(function(response){
-                vm.showErrorMessage = true;
+                vm.showRegisterErrorMessage = true;
             })
             .finally(function(){
                 vm.showPreliminaryForm = false;
@@ -68,10 +74,10 @@
         function updateRegistrant(registrantID, data){
             $http.put(apiUrl + 'registrants/' + registrantID, data)
             .success(function(){
-                vm.showSuccessMessage = true;
+                vm.showRegisterSuccessMessage = true;
             })
             .error(function(response){
-                vm.showErrorMessage = true;
+                vm.showRegisterErrorMessage = true;
             })
             .finally(function(){
                 vm.showDetailForm = false;
