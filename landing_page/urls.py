@@ -19,13 +19,9 @@ from django.conf.urls import patterns, include
 from django.views.generic.base import RedirectView
 
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-]
-
-urlpatterns += patterns(
-    '',
-    url(r'^api', include('api.urls')),
-    url(r'^', include('website.urls')),
-    url(r'^.*$', RedirectView.as_view(url='/'))
-)
+urlpatterns = patterns('',
+                       url(r'^admin/', admin.site.urls),
+                       url(r'^api', include('api.urls')),
+                       url(r'^', include('website.urls')),
+                       url(r'^.*$', RedirectView.as_view(url='/'))
+                       )
