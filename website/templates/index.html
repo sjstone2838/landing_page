@@ -45,14 +45,14 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#about">About</a>
+                       <li>
+                            <a ng-click="main.scrollTo('about')">About</a>
                         </li>
                         <li>
-                            <a href="#products">Products</a>
+                            <a ng-click="main.scrollTo('products')">Products</a>
                         </li>
                         <li>
-                            <a href="#login">Login</a>
+                            <a ng-click="main.scrollTo('login')">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -60,6 +60,10 @@
             </div>
             <!-- /.container -->
         </nav>
+
+        <!--Signup link -->
+        <div class='btn btn-primary btn-signup' ng-click="main.scrollTo('signup')">Sign Up</div>
+                        
 
         <!-- Header -->
         <div class="intro-header">
@@ -90,8 +94,8 @@
         </div>
 
         <!-- /.content-section-a -->
-        <a  name="about"></a>
-        <div class="content-section-a">
+        <!-- <a  name="about"></a> -->
+        <div id="about" class="content-section-a">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-sm-6">
@@ -101,7 +105,7 @@
                         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                        <img class="img-responsive" src="{% static 'img/ipad.png' %}" alt="">
+                        <img class="img-responsive" src="{% static 'img/boomerang_overview.png' %}" alt="">
                     </div>
                 </div>
 
@@ -117,10 +121,10 @@
                         <hr class="section-heading-spacer">
                         <div class="clearfix"></div>
                         <h2 class="section-heading">Candidate Insights</h2>
-                        <p class="lead">[EXPANDABLE WIREFRAME OF CANDIDATE INSIGHTS -->] <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                        <img class="img-responsive" src="{% static 'img/dog.png' %}" alt="">
+                        <img class="img-responsive" src="{% static 'img/candidate_insights.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -134,17 +138,17 @@
                         <hr class="section-heading-spacer">
                         <div class="clearfix"></div>
                         <h2 class="section-heading">Interviewer Analytics</h2>
-                        <p class="lead">[ <--EXPANDABLE WIREFRAME OF INTERVIEWER Analytics] <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></p>
+                        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></p>
                     </div>
                     <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                        <img class="img-responsive" src="{% static 'img/phones.png' %}" alt="">
+                        <img class="img-responsive" src="{% static 'img/interviewer_analytics.png' %}" alt="">
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <a  name="login"></a>
+        <a  name="signup"></a>
         <div class="banner">
             <div class="container">
                 <div class="row">
@@ -227,20 +231,16 @@
                     <div class="col-lg-12">
                         <ul class="list-inline">
                             <li>
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="footer-menu-divider">&sdot;</li>
-                            <li>
-                                <a href="#about">About</a>
-                            </li>
-                            <li class="footer-menu-divider">&sdot;</li>
-                            <li>
-                                <a href="#products">Products</a>
-                            </li>
-                            <li class="footer-menu-divider">&sdot;</li>
-                            <li>
-                                <a href="#contact">Contact</a>
-                            </li>
+                                 <a ng-click="main.scrollTo('about')">About</a>
+                             </li>
+                             <li class="footer-menu-divider">&sdot;</li>
+                             <li>
+                                 <a ng-click="main.scrollTo('products')">Products</a>
+                             </li>
+                             <li class="footer-menu-divider">&sdot;</li>
+                             <li>
+                                 <a ng-click="main.scrollTo('login')">Login</a>
+                             </li>
                         </ul>
                         <p class="copyright text-muted small">Copyright &copy; Boomerang 2016. All Rights Reserved</p>
                     </div>
@@ -249,10 +249,5 @@
         </footer>
 
     </body>
-    
-
-
-
-            
 
 </html>
