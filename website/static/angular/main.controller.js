@@ -9,6 +9,7 @@
         var apiUrl = protocol + '://' + host + ':' + port + '/api/'; 
 
         vm.showPreliminaryForm = true;
+        vm.showLoginForm = true;
         vm.showDetailForm = false;
         vm.showSuccessMessage = false;
         vm.showErrorMessage = false;

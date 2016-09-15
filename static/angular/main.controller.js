@@ -1,5 +1,5 @@
 (function() {  
-    function MainCtrl ($http, $location) {
+    function MainCtrl ($http, $location, $anchorScroll) {
 
         var vm = this;
 
@@ -9,16 +9,16 @@
         var apiUrl = protocol + '://' + host + ':' + port + '/api/'; 
 
         vm.showPreliminaryForm = true;
+        vm.showLoginForm = true;
         vm.showDetailForm = false;
         vm.showSuccessMessage = false;
         vm.showErrorMessage = false;
 
-        vm.closeMessage = function(){
-            vm.showPreliminaryForm = true;
-            vm.showDetailForm = false;
-            vm.showSuccessMessage = false;
-            vm.showErrorMessage = false;
-            clearRegistrantData();
+        vm.scrollTo = function(id) {
+          console.log(id);
+          $location.hash(id);
+          console.log($location);
+          $anchorScroll();
         }
 
         vm.submit = function(email){
@@ -42,6 +42,14 @@
                     createRegistrant(data)
                 }
             });
+        }
+
+        vm.closeMessage = function(){
+            vm.showPreliminaryForm = true;
+            vm.showDetailForm = false;
+            vm.showSuccessMessage = false;
+            vm.showErrorMessage = false;
+            clearRegistrantData();
         }
 
         function createRegistrant(data){
@@ -83,7 +91,7 @@
     }
 
     angular.module('app')
-    .controller('MainCtrl', ['$http', '$location', MainCtrl])
+    .controller('MainCtrl', ['$http', '$location', '$anchorScroll', MainCtrl])
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.xsrfCookieName = 'csrftoken';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';

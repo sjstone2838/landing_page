@@ -155,7 +155,6 @@
                     <div class="col-lg-6">
                         <h2>Sign up for the Boomerang private beta</h2>
                     
-
                         <form 
                             name="preliminaryForm" 
                             ng-submit="main.submit(main.email)" 
@@ -223,6 +222,25 @@
             </div>
 
         </div>
+
+        <!-- Login -->
+        <div class="login">
+            <form 
+                name="loginForm" 
+                ng-submit="main.login(main.username, main.password)" 
+                ng-if="main.showLoginForm">
+                <div class="form-input-row"> 
+                    <div class="form-input-label"> Username: </div>
+                    <input class="form-input-input" type="text" ng-model="main.username" required="string">
+                </div>
+                <div class="form-input-row"> 
+                    <div class="form-input-label"> Password: </div>
+                    <input class="form-input-input" type="text" ng-model="main.password" required="string">
+                </div>
+                <input ng-disabled="loginForm.$invalid" class="btn btn-primary" type="submit" value="Login">
+            </form>
+        </div>
+        
 
         <!-- Footer -->
         <footer>

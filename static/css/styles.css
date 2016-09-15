@@ -1,3 +1,7 @@
+a {
+    cursor: pointer;
+}
+
 article::after {
     content:"";
     display: inline-block;
@@ -57,6 +61,9 @@ form, .error-message, .success-message{
   margin: 30px;
   padding: 10px;
   position: relative;
+  background-color: white;
+  opacity: 0.8;
+  color: black;
 }
 
 .form-input-row{
@@ -69,6 +76,7 @@ form, .error-message, .success-message{
 }
 
 .form-input-input{
+  color: black;
 }
 
     .form-input-input.ng-valid{
@@ -88,6 +96,21 @@ form, .error-message, .success-message{
     border-radius: 5px;
     font-size: 10pt;
     padding: 0px 3px 0px 3px;
+}
+
+.btn-signup {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  font-size: 15pt;
+  z-index: 100;
+}
+
+.login{
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 100;
 }
 
 
