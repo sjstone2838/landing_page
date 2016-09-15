@@ -1,11 +1,12 @@
 (function() {  
-    function MainCtrl ($http, $window) {
+    function MainCtrl ($http, $location) {
 
         var vm = this;
-        var apiUrl = 'http://127.0.0.1:8000/api/'; 
 
-        console.log('$window');
-        console.log($window);
+        var protocol = $location.$$protocol;
+        var host = $location.$$host;
+        var port = $location.$$port;
+        var apiUrl = protocol + '://' + host + ':' + port + '/api/'; 
 
         vm.showPreliminaryForm = true;
         vm.showDetailForm = false;
@@ -13,11 +14,11 @@
         vm.showErrorMessage = false;
 
         vm.closeMessage = function(){
-            console.log("close");
             vm.showPreliminaryForm = true;
             vm.showDetailForm = false;
             vm.showSuccessMessage = false;
             vm.showErrorMessage = false;
+            clearRegistrantData();
         }
 
         vm.submit = function(email){
@@ -69,11 +70,20 @@
             });
         }
 
+        function clearRegistrantData(){
+            vm.firstName = '';
+            vm.lastName = '';
+            vm.email = '';
+            vm.industry = '';
+            vm.employeeCount = '';
+            vm.annualHires   = '';
+        }
+
 
     }
 
     angular.module('app')
-    .controller('MainCtrl', ['$http', '$window', MainCtrl])
+    .controller('MainCtrl', ['$http', '$location', MainCtrl])
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.xsrfCookieName = 'csrftoken';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
