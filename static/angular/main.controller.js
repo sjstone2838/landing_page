@@ -2,7 +2,7 @@
     function MainCtrl ($http, $location, $anchorScroll) {
 
         var vm = this;
-        console.log("hello world")
+        console.log("No more redundancy!")
 
         var protocol = $location.$$protocol;
         var host = $location.$$host;
