@@ -2,6 +2,8 @@
     function MainCtrl ($http, $location, $anchorScroll) {
 
         var vm = this;
+                console.log("byes")
+
 
         var protocol = $location.$$protocol;
         var host = $location.$$host;

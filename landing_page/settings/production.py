@@ -15,3 +15,6 @@ DATABASES = {
         'PORT': os.environ['RDS_PORT'],
     }
 }
+
+STATIC_ROOT = 'static'
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
