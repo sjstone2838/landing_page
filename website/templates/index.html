@@ -105,16 +105,16 @@
                         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                        <img class="img-responsive" ng-src="{% static 'img/boomerang_overview.png' %}" alt="">
+                        <img class="img-responsive modal-thumbnail" ng-src="{% static 'img/boomerang_overview.png' %}" ng-click="main.showModal('boomerang_overview.png')">
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
 
         <!-- /.content-section-b -->
         <a  name="products"></a>
-        <div class="content-section-b">
+        <div class="content-section-a">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
@@ -124,13 +124,15 @@
                         <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                        <img class="img-responsive" ng-src="{% static 'img/candidate_insights.png' %}" alt="">
+                        <img class="img-responsive modal-thumbnail" ng-src="{% static 'img/candidate_insights.png' %}" ng-click="main.showModal('candidate_insights.png')">
                     </div>
+
+
                 </div>
             </div>
         </div>
         
-
+        <!-- /.content-section-c -->
         <div class="content-section-a">
             <div class="container">
                 <div class="row">
@@ -141,13 +143,14 @@
                         <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></p>
                     </div>
                     <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                        <img class="img-responsive" ng-src="{% static 'img/interviewer_analytics.png' %}" alt="">
+                        <img class="img-responsive modal-thumbnail" ng-src="{% static 'img/interviewer_analytics.png' %}" ng-click="main.showModal('interviewer_analytics.png')">
                     </div>
                 </div>
             </div>
 
         </div>
 
+        <!-- /.signup -->
         <a  name="signup"></a>
         <div class="banner">
             <div class="container">
@@ -229,6 +232,7 @@
                 class="login" 
                 ng-submit="main.login(main.username, main.password)" 
                 ng-if="main.showLoginForm">
+                <br>
                 <div class="form-input-row"> 
                     <div class="form-input-label"> Username: </div>
                     <input class="form-input-input" type="text" ng-model="main.username" required="string">
@@ -239,9 +243,24 @@
                 </div>
                 <div class="error-message" ng-if="main.showLoginErrorMessage"> Username and/or password not recognized. </div>
                 <input ng-disabled="loginForm.$invalid" class="btn btn-primary" type="submit" value="Login">
-                <div class="btn-close" ng-click="main.showLoginForm = false"> X </div>
+                <div class="btn-close" ng-click="main.showLoginForm = false"> &times; </div>
             </form>
-        
+
+        <!-- Modal -->
+        <div class="modal fade" id="boomerang_overview_modal" role="dialog">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <img class="img-responsive" ng-src="{% static 'img/{{main.modalImage}}' %}">
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Footer -->
         <footer>

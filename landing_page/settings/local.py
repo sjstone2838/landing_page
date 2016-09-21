@@ -12,6 +12,9 @@ DATABASES = {
     }
 }
 
+# serve static files (e.g. js locally)
+# so that collecstatic does not need to be run
+# each time a .js file is edited
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     'static/',

@@ -22,6 +22,11 @@
           $anchorScroll();
         };
 
+        vm.showModal = function(img){
+            vm.modalImage = img;
+            angular.element(".modal").modal();
+        };
+
         vm.submit = function(){
             var data = JSON.stringify({
                 first_name: vm.firstName,
