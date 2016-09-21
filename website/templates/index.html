@@ -158,7 +158,7 @@
                         <form 
                             name="preliminaryForm" 
                             ng-submit="main.submit(main.email)" 
-                            ng-if="main.showPreliminaryForm">
+                            ng-if="main.registrantForm === 'preliminaryForm'">
                             <div class="form-input-row"> 
                                 <div class="form-input-label"> First name: </div>
                                 <input class="form-input-input" type="text" ng-model="main.firstName" required="string">
@@ -178,7 +178,7 @@
                         <form 
                             name="detailForm" 
                             ng-submit="main.submit(main.email)" 
-                            ng-if="main.showDetailForm">
+                            ng-if="main.registrantForm === 'detailForm'">
                             <h4> Thanks. Please tell us a bit about your company </h4>
                             <div class="form-input-row"> 
                                 <div class="form-input-label"> Industry: </div>
@@ -206,12 +206,12 @@
                             <input ng-disabled="detailForm.$invalid" class="btn btn-primary" type="submit" value="Submit">
                         </form>
 
-                        <form class="error-message" ng-if="main.showRegisterErrorMessage">
+                        <form class="error-message" ng-if="main.registrantForm === 'errorMessage'">
                             <span> Something went wrong, please try again </span>
                             <span class="btn-close" ng-click="main.closeMessage()"> X </span>
                         </form>
 
-                        <form class="success-message" ng-if="main.showRegisterSuccessMessage">
+                        <form class="success-message" ng-if="main.registrantForm === 'successMessage'">
                             <span> Thanks for submitting your information, we'll be in touch soon. </span>
                             <span class="btn-close" ng-click="main.closeMessage()"> X </span>
                         </form>

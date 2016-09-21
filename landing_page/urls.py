@@ -18,10 +18,18 @@ from django.contrib import admin
 from django.conf.urls import patterns, include
 from django.views.generic.base import RedirectView
 
+# from rest_framework.routers import DefaultRouter
+
+# from api import views
+
+# router = DefaultRouter()
+# router.register(r'registrants', views.RegistrantCreateUpdateView,
+#                 base_name='registrants')
 
 urlpatterns = patterns('',
-                       url(r'^admin/', admin.site.urls),
+                       # url(r'^api/', include(router.urls), name='api_root'),
                        url(r'^api', include('api.urls')),
+                       url(r'^admin/', admin.site.urls),
                        url(r'^', include('website.urls')),
                        url(r'^.*$', RedirectView.as_view(url='/'))
                        )
